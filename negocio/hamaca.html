@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<title>Negocio - Producto</title>
+<link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #fff8f0;
+}
+
+/* header */
+header {
+    background: 
+    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+    url('../img/header_HM.png') center/cover no-repeat;
+
+  color: white;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+/* contenedor */
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+.product-view {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* miniaturas */
+.thumbnails {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.thumbnails img {
+    width: 80px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+    border: 2px solid transparent;
+}
+
+.thumbnails img:hover {
+    transform: scale(1.05);
+    border: 2px solid #e76f51;
+}
+
+/* imagen principal */
+.main-image {
+    text-align: center;
+}
+
+.main-image img {
+    width: 300px;
+    border-radius: 10px;
+}
+
+.price {
+    font-size: 22px;
+    color: #e76f51;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* producto */
+.product {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.product img {
+    width: 300px;
+    border-radius: 10px;
+}
+
+/* precio */
+.price {
+    font-size: 22px;
+    color: #e76f51;
+    font-weight: bold;
+}
+
+/* botones */
+.buttons {
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.whatsapp {
+    background: #25D366;
+    color: white;
+}
+
+.comprar {
+    background: #635bff;
+    color: white;
+}
+
+.volver {
+    background: #e9c46a;
+    color: black;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    
+    <div class="logo">
+      <a href="../index.html"><img src="../img/logowebnew.png" alt="Artesanías CTG" class="logo"></a>
+      
+    </div>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+    <nav id="navMenu">
+      <button class="close-menu" id="closeMenu">cerrar menu</button>
+      <ul>
+        <li><a href="../index.html" data-i18n="menu_home">Inicio</a></li>
+        <li><a href="#catalogo" data-i18n="menu_catalogue">Catálogo</a></li>
+        <li><a href="#emprendedores" data-i18n="menu_entrepreneurs">Emprendedores</a></li>
+        <li><a href="#problema" data-i18n="menu_solution">Problema/Solución</a></li>
+        <li><a href="#beneficios" data-i18n="menu_benefits">Beneficios</a></li>
+        <li><a href="#tecnologia" data-i18n="menu_technology">Tecnología</a></li>
+        <li><a href="#contacto" data-i18n="menu_contact">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="lang-switcher">
+      <button id="es" class="active">ES</button>
+      <button id="en">EN</button>
+    </div>
+  
+</header>
+
+<div class="container">
+
+    <div class="product">
+
+        <h1>Hamaca Caribeña</h1>
+
+        <div class="product-view">
+
+    <!-- Miniaturas verticales -->
+        <div class="thumbnails">
+        <img src="../img/HC.png" onclick="changeImage(this)">
+        <img src="../img/HC.png" onclick="changeImage(this)">
+        <img src="../img/HC.png" onclick="changeImage(this)">
+        </div>
+
+    <!-- Imagen principal -->
+         <div class="main-image">
+         <img id="mainImg" src="../img/HC.png">
+          <p class="price">COP $90.000</p>
+         </div>
+
+        </div>
+
+        <p>
+            Hamaca artesanal tejida a mano por artesanos de Cartagena.
+            Material resistente, colores caribeños y diseño tradicional.
+            Ideal para descanso y decoración.
+        </p>
+
+        <div class="buttons">
+
+            <a href="https://wa.me/573042668475" target="_blank">
+                <button class="whatsapp">WhatsApp</button>
+            </a>
+
+            <a href="https://buy.stripe.com/test_00w3cu7gf7ui21119DbAs00" target="_blank">
+                <button class="comprar">Comprar</button>
+            </a>
+
+            <a href="../index.html">
+                <button class="volver">Volver</button>
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
