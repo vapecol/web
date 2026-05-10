@@ -93,6 +93,14 @@ function renderSlider() {
   wrapper.innerHTML = anuncios.map((a, i) => `
     <div class="slide ${i === 0 ? "active" : ""}">
       <img src="${a.img}" class="slide-img" />
+<<<<<<< HEAD
+=======
+      <div class="slide-overlay">
+        <span class="slide-badge">${a.badge}</span>
+        <h2>${a.titulo}</h2>
+        <p>${a.subtitulo}</p>
+      </div>
+>>>>>>> a3a344a669dd1a13ae665914d26b5399b31dbe9c
     </div>
   `).join("");
 
