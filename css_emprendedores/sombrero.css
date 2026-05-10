@@ -1,0 +1,333 @@
+:root {
+  --primary: #f8e9e5;
+  --secondary: #264653;
+  --bg: #fdf6ee;
+  --accent: #c07c3a;
+  --highlight: #e9c46a;
+  --border: #d4a96a;
+  --shadow: 0 4px 12px rgba(0,0,0,0.08);
+  --transition: all 0.3s cubic-bezier(.4,0,.2,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #2c2c2c;
+  background: var(--bg);
+  scroll-behavior: smooth;
+
+  /* IMPORTANTE para que el header no tape contenido */
+  padding-top: 80px;
+}
+
+a { text-decoration: none; color: inherit; }
+h2 { text-align: center; color: #8b4513; }
+button { cursor: pointer; }
+
+/* ── HEADER CORREGIDO ───────────────────────────────────────── */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 100px;                /*  controla altura */
+  padding: 0 2em;
+
+  position: fixed;             
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  z-index: 100;
+  border-bottom: 3px solid var(--highlight);
+
+  /*  overlay más suave */
+  background:
+    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    url('../img/header-SV.png') center/cover no-repeat;
+
+  backdrop-filter: blur(6px);  /* efecto moderno */
+  color: white;
+
+  box-shadow: var(--shadow);
+}
+
+/* Logo controlado */
+.logo img {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ── NAV ─────────────────────────────────────────────────────── */
+nav ul {
+  display: flex;
+  gap: 1.5em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: #fff;
+  font-weight: 500;
+  transition: var(--transition);
+  font-size: 0.9rem;
+}
+
+nav a:hover {
+  color: var(--highlight);
+}
+
+/* ── BOTÓN MENÚ ─────────────────────────────────────────────── */
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  background: none;
+  border: none;
+  color: white;
+}
+
+.close-menu {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: none;
+}
+
+/* ── LANG SWITCH ────────────────────────────────────────────── */
+.lang-switcher {
+  display: flex;
+  gap: 5px;
+}
+
+.lang-switcher button {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.5);
+  color: white;
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+}
+
+.lang-switcher button.active,
+.lang-switcher button:hover {
+  background: var(--highlight);
+  color: var(--secondary);
+}
+
+/* ── SLIDER (igual pero más fino) ───────────────────────────── */
+
+.hero-slider {
+  position:relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 6;  
+  overflow: hidden;
+}
+
+.slide-img {
+  width: 100%;
+  height: 55%;
+  object-fit: contain;  
+  object-position: center;
+  filter: brightness(0.6);
+  
+}
+
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.slide.active { opacity: 1; }
+
+
+.slide-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;     
+  padding: 0.1em 1em 2em;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: rgb(8, 7, 7);
+}
+
+.slide-titulo {
+  font-size: 5rem;
+  margin: 0;
+}
+
+/* ── CATÁLOGO ─────────────────────────────────────────────── */
+.catalogo-section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 1.5em;
+}
+
+.catalogo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2em;
+}
+
+/* TARJETAS */
+.sv-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  transition: 0.3s;
+}
+
+.sv-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.sv-card-img-wrap {
+  width: 150px;
+  min-width: 150px;
+}
+
+.sv-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sv-card-info {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sv-card-nombre {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.sv-card-desc {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.sv-card-precio {
+  color: var(--accent);
+  font-weight: bold;
+}
+
+/* BOTONES */
+.btn-comprar {
+  background: #635bff;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.7rem;
+}
+
+.btn-wsp {
+  background: #25D366;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+.cart-icon {
+  position: relative;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.cart-icon span {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: red;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+/* PANEL DEL CARRITO */
+.cart-panel {
+  position: fixed;
+  top: 0;
+  right: -350px;
+  width: 350px;
+  height: 100%;
+  background: white;
+  box-shadow: -4px 0 10px rgba(0,0,0,0.2);
+  transition: 0.3s;
+  z-index: 999;
+  padding: 20px;
+}
+
+.cart-panel.active {
+  right: 0;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.cart-total {
+  font-weight: bold;
+  margin-top: 15px;
+}
+/* ── RESPONSIVE ───────────────────────────────────────────── */
+@media (max-width: 1000px) {
+
+  .menu-toggle { display: block; }
+
+  nav {
+    position: fixed;
+    left: -260px;
+    top: 0;
+    width: 260px;
+    height: 100%;
+    background: white;
+    transition: 0.3s;
+  }
+
+  nav.active { left: 0; }
+
+  nav ul {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  nav a {
+    color: #333;
+  }
+}
+
+@media (max-width: 700px) {
+  .catalogo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sv-card {
+    flex-direction: column;
+  }
+
+  .sv-card-img-wrap {
+    width: 100%;
+    height: 180px;
+  }
+}
