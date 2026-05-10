@@ -93,15 +93,7 @@ function renderSlider() {
       (a, i) => `
     <div class="slide ${i === 0 ? "active" : ""}" data-index="${i}">
       <img src="${a.img}" alt="${a.titulo}" class="slide-img" />
-<<<<<<< HEAD
     
-=======
-      <div class="slide-overlay">
-        <span class="slide-badge">${a.badge}</span>
-        <h2 class="slide-titulo">${a.titulo}</h2>
-        <p class="slide-sub">${a.subtitulo}</p>
-      </div>
->>>>>>> a3a344a669dd1a13ae665914d26b5399b31dbe9c
     </div>
   `
     )

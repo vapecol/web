@@ -14,7 +14,7 @@
 
 <body>
 
-<!--  HEADER -->
+<!-- HEADER -->
 <header>
   <div class="logo">
     <a href="../index.html">
@@ -30,27 +30,27 @@
       <li><a href="../index.html">Inicio</a></li>
       <li><a href="#catalogo">Catálogo</a></li>
       <li><a href="#emprendedores" data-i18n="menu_entrepreneurs">Emprendedores</a></li>
-        <li><a href="#problema" data-i18n="menu_solution">Problema/Solución</a></li>
-        <li><a href="#beneficios" data-i18n="menu_benefits">Beneficios</a></li>
-        <li><a href="#tecnologia" data-i18n="menu_technology">Tecnología</a></li>
-        <li><a href="#contacto" data-i18n="menu_contact">Contacto</a></li>
+      <li><a href="#problema" data-i18n="menu_solution">Problema/Solución</a></li>
+      <li><a href="#beneficios" data-i18n="menu_benefits">Beneficios</a></li>
+      <li><a href="#tecnologia" data-i18n="menu_technology">Tecnología</a></li>
+      <li><a href="#contacto" data-i18n="menu_contact">Contacto</a></li>
     </ul>
   </nav>
 
-  <!--  CARRITO ICONO -->
+  <!-- CARRITO ICONO -->
   <div class="cart-icon" onclick="toggleCart()">
     <i class="fa-solid fa-cart-shopping"></i>
     <span id="cart-count">0</span>
   </div>
 
-  <!--  IDIOMA -->
+  <!-- IDIOMA -->
   <div class="lang-switcher">
     <button class="active">ES</button>
     <button>EN</button>
   </div>
 </header>
 
-<!--  SLIDER -->
+<!-- SLIDER -->
 <section class="hero-slider">
   <div id="slider-wrapper"></div>
 
@@ -60,15 +60,13 @@
   <div id="slider-dots" class="slider-dots"></div>
 </section>
 
-<!--  CATÁLOGO -->
+<!-- CATÁLOGO -->
 <section id="catalogo" class="catalogo-section">
 
-  <!-- 🔍 FILTROS -->
+  <!-- FILTROS -->
   <div class="filtros">
     <h2 class="filtros-titulo">Catálogo de Sombreros</h2>
-
     <input type="text" id="buscador" placeholder="Buscar sombreros...">
-
     <select id="orden">
       <option value="default">Ordenar</option>
       <option value="asc">Precio menor</option>
@@ -81,7 +79,7 @@
 
 </section>
 
-<!-- 🛒 PANEL DEL CARRITO -->
+<!-- PANEL DEL CARRITO -->
 <div class="cart-panel" id="cartPanel">
   <h3>🛒 Carrito</h3>
   <div id="cartItems"></div>
@@ -94,59 +92,8 @@
   <p>© 2026 Artesanías CTG - Todos los derechos reservados</p>
 </footer>
 
-<!--  SCRIPT PRINCIPAL -->
+<!-- SCRIPT PRINCIPAL -->
 <script src="../scripEmprendedores/sombrero.js"></script>
-
-<!--  SCRIPT MENÚ + CARRITO -->
-<script>
-/* MENU MOVIL */
-const menuToggle = document.getElementById("menuToggle");
-const navMenu = document.getElementById("navMenu");
-const closeMenu = document.getElementById("closeMenu");
-
-menuToggle.onclick = () => navMenu.classList.add("active");
-closeMenu.onclick = () => navMenu.classList.remove("active");
-
-
-/*  CARRITO */
-let carrito = [];
-
-function toggleCart() {
-  document.getElementById("cartPanel").classList.toggle("active");
-}
-
-function agregarAlCarrito(producto) {
-  carrito.push(producto);
-  actualizarCarrito();
-}
-
-function actualizarCarrito() {
-  const contenedor = document.getElementById("cartItems");
-  const totalEl = document.getElementById("cartTotal");
-  const countEl = document.getElementById("cart-count");
-
-  contenedor.innerHTML = "";
-  let total = 0;
-
-  carrito.forEach(p => {
-    total += p.precio;
-
-    contenedor.innerHTML += `
-      <div class="cart-item">
-        <span>${p.nombre}</span>
-        <span>$${p.precio.toLocaleString("es-CO")}</span>
-      </div>
-    `;
-  });
-
-  totalEl.innerText = total.toLocaleString("es-CO");
-  countEl.innerText = carrito.length;
-}
-
-function checkout() {
-  alert("Compra simulada 🛒");
-}
-</script>
 
 </body>
 </html>
