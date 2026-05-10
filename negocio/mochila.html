@@ -1,200 +1,156 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<title>Negocio - Producto</title>
-<link rel="stylesheet" href="../styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mochilas Wayuu</title>
+  <link rel="stylesheet" href="../css_emprendedores/mochila.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #fff8f0;
-}
-
-/* header */
-header {
-    background: 
-    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-    url('../img/header_MW.png') center/cover no-repeat;
-
-  color: white;
-}
-
-a {
-    text-decoration: none;
-    color: white;
-}
-
-/* contenedor */
-.container {
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
-}
-
-/* producto */
-.product {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    text-align: center;
-}
-
-.product img {
-    width: 300px;
-    border-radius: 10px;
-}
-
-/* precio */
-.price {
-    font-size: 22px;
-    color: #e76f51;
-    font-weight: bold;
-}
-
-/* botones */
-.buttons {
-    margin-top: 20px;
-}
-
-button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin: 5px;
-}
-
-.whatsapp {
-    background: #25D366;
-    color: white;
-}
-
-.comprar {
-    background: #635bff;
-    color: white;
-}
-
-.volver {
-    background: #e9c46a;
-    color: black;
-}
-
-</style>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
+<!-- HEADER -->
 <header>
-    
-    <div class="logo">
-      <a href="../index.html"><img src="../img/logowebnew.png" alt="Artesanías CTG" class="logo"></a>
-      
-    </div>
-    <button class="menu-toggle" id="menuToggle">☰</button>
-    <nav id="navMenu">
-      <button class="close-menu" id="closeMenu">cerrar menu</button>
-      <ul>
-        <li><a href="../index.html" data-i18n="menu_home">Inicio</a></li>
-        <li><a href="#catalogo" data-i18n="menu_catalogue">Catálogo</a></li>
-        <li><a href="#emprendedores" data-i18n="menu_entrepreneurs">Emprendedores</a></li>
-        <li><a href="#problema" data-i18n="menu_solution">Problema/Solución</a></li>
-        <li><a href="#beneficios" data-i18n="menu_benefits">Beneficios</a></li>
-        <li><a href="#tecnologia" data-i18n="menu_technology">Tecnología</a></li>
-        <li><a href="#contacto" data-i18n="menu_contact">Contacto</a></li>
-      </ul>
-    </nav>
-    <div class="lang-switcher">
-      <button id="es" class="active">ES</button>
-      <button id="en">EN</button>
-    </div>
+  <div class="logo">
+    <img src="../img/logowebnew.png" alt="Mochilas Wayuu">
+    <span class="logo-text">Wayuu</span>
+  </div>
 
+  <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+
+  <nav id="mainNav">
+    <button class="close-menu" id="closeNav"><i class="fa-solid fa-xmark"></i></button>
+    <ul>
+      <li><a href="../index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+      <li><a href="#catalogo"><i class="fa-solid fa-bag-shopping"></i> Catálogo</a></li>
+      <li><a href="#anuncios"><i class="fa-solid fa-tag"></i> Ofertas</a></li>
+    </ul>
+  </nav>
+
+  <div class="header-right">
+    <div class="cart-icon" id="cartBtn">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span id="cart-count">0</span>
+    </div>
+  </div>
 </header>
 
-<div class="container">
+<!-- SLIDER ANUNCIOS -->
+<section class="hero-slider" id="slider">
+  <div class="slides-wrapper" id="slidesWrapper"></div>
+  <button class="slider-btn prev" id="prevBtn"><i class="fa-solid fa-chevron-left"></i></button>
+  <button class="slider-btn next" id="nextBtn"><i class="fa-solid fa-chevron-right"></i></button>
+  <div class="slider-dots" id="sliderDots"></div>
+</section>
 
-    <div class="product">
+<!-- LAYOUT PRINCIPAL -->
+<div class="main-layout">
 
-        <h1>Mochila Wayuu</h1>
+  <!-- COLUMNA IZQUIERDA: CATÁLOGO -->
+  <main class="catalogo-col">
 
-        <div class="product-view">
+    <!-- BUSCADOR Y FILTROS -->
+    <section class="filtros-section">
+      <h2 class="section-title">Nuestras Mochilas</h2>
 
-    
+      <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="Buscar mochila...">
+      </div>
 
-    <!-- Imagen principal -->
-    <div class="main-image">
-        <img id="mainImg" src="../img/MW.png">
-        <p id="price" class="price">COP $90.000</p>
-    </div>
-
-</div>
-        <p>
-            El tejido es una tradición heredada de la araña ancestral Walekeru, transmitida de madres a hijas como un rito de iniciación a la feminidad.
-            Cada mochila es única y se considera una encarnación de la historia y el pensamiento de la tejedora.
-        </p>
-
-        <div class="buttons">
-
-            <a href="https://wa.me/573042668475" target="_blank">
-                <button class="whatsapp">WhatsApp</button>
-            </a>
-
-            <a href="https://buy.stripe.com/test_00w3cu7gf7ui21119DbAs00" target="_blank">
-                <button class="comprar">Comprar</button>
-            </a>
-
-            <a href="../index.html">
-                <button class="volver">Volver</button>
-            </a>
-
+      <div class="filtros">
+        <div class="filtro-grupo">
+          <label>Categoría</label>
+          <select id="filtroCategoria">
+            <option value="">Todas</option>
+            <option value="grande">Grande</option>
+            <option value="mediana">Mediana</option>
+            <option value="pequeña">Pequeña</option>
+            <option value="clutch">Clutch</option>
+          </select>
         </div>
 
+        <div class="filtro-grupo">
+          <label>Color</label>
+          <select id="filtroColor">
+            <option value="">Todos</option>
+            <option value="rojo">Rojo</option>
+            <option value="azul">Azul</option>
+            <option value="verde">Verde</option>
+            <option value="amarillo">Amarillo</option>
+            <option value="multicolor">Multicolor</option>
+            <option value="naranja">Naranja</option>
+            <option value="morado">Morado</option>
+          </select>
+        </div>
+
+        <div class="filtro-grupo">
+          <label>Precio</label>
+          <select id="filtroPrecio">
+            <option value="">Todos</option>
+            <option value="0-80000">Hasta $80.000</option>
+            <option value="80000-150000">$80.000 - $150.000</option>
+            <option value="150000-999999">Más de $150.000</option>
+          </select>
+        </div>
+
+        <button class="btn-limpiar" id="btnLimpiar">
+          <i class="fa-solid fa-rotate-left"></i> Limpiar
+        </button>
+      </div>
+    </section>
+
+    <!-- GRID PRODUCTOS -->
+    <section id="catalogo" class="catalogo-section">
+      <div class="resultado-info" id="resultadoInfo"></div>
+      <div id="grid" class="catalogo-grid"></div>
+      <div id="noResultados" class="no-resultados" style="display:none;">
+        <i class="fa-solid fa-face-sad-tear"></i>
+        <p>No encontramos productos con esos filtros</p>
+        <button class="btn-limpiar" onclick="limpiarFiltros()">Ver todos</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- COLUMNA DERECHA: ANUNCIOS LATERALES -->
+  <aside class="sidebar-anuncios" id="anuncios">
+    <h3 class="sidebar-title"><i class="fa-solid fa-star"></i> Destacados</h3>
+    <div id="anunciosLaterales"></div>
+
+    <div class="sidebar-banner">
+      <i class="fa-solid fa-truck-fast"></i>
+      <strong>Envío gratis</strong>
+      <span>en compras mayores a $200.000</span>
     </div>
 
+    <div class="sidebar-banner segunda">
+      <i class="fa-brands fa-whatsapp"></i>
+      <strong>¿Tienes dudas?</strong>
+      <span>Escríbenos por WhatsApp</span>
+    </div>
+  </aside>
 </div>
-<script>
-const images = [
-    { src: "../img/SV.png", price: "COP $90.000" },
-    { src: "../img/MW.png", price: "COP $95.000" },
-    { src: "../img/HC.png", price: "COP $100.000" }
-];
 
-let index = 0;
-let interval;
+<!-- CARRITO LATERAL -->
+<div id="cartPanel" class="cart-panel">
+  <div class="cart-header">
+    <h3><i class="fa-solid fa-cart-shopping"></i> Mi Carrito</h3>
+    <button id="closeCart"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div id="cartItems" class="cart-items"></div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Total:</span>
+      <strong>$<span id="total">0</span></strong>
+    </div>
+    <button class="btn-checkout" onclick="checkout()">
+      <i class="fa-solid fa-check"></i> Confirmar pedido
+    </button>
+  </div>
+</div>
+<div id="cartOverlay" class="cart-overlay"></div>
 
-/* cambiar imagen manual */
-function selectImage(i) {
-    index = i;
-    updateView();
-    resetAutoSlide();
-}
-
-/* actualizar imagen y precio */
-function updateView() {
-    document.getElementById("mainImg").src = images[index].src;
-    document.getElementById("price").innerText = images[index].price;
-}
-
-/* auto scroll */
-function autoSlide() {
-    index = (index + 1) % images.length;
-    updateView();
-}
-
-/* reiniciar temporizador si el usuario hace click */
-function resetAutoSlide() {
-    clearInterval(interval);
-    interval = setInterval(autoSlide, 3000);
-}
-
-/* iniciar automático */
-interval = setInterval(autoSlide, 3000);
-</script>
+<script src="../scripEmprendedores/mochila.js"></script>
 </body>
 </html>
