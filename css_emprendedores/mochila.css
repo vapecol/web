@@ -734,43 +734,132 @@ nav a:hover { color: var(--highlight); }
 }
 
 .btn-checkout:hover { background: var(--primary); }
-
-/* ── RESPONSIVE ─────────────────────────────── */
+/* ── TABLETS GRANDES ─────────────────────────────── */
 @media (max-width: 1100px) {
-  .sidebar-anuncios { width: 230px; }
+  .sidebar-anuncios {
+    width: 230px;
+  }
+
+  .catalogo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
+/* ── TABLETS ─────────────────────────────── */
 @media (max-width: 900px) {
-  .main-layout { flex-direction: column; }
-  .sidebar-anuncios { width: 100%; flex-direction: row; flex-wrap: wrap; }
-  .anuncio-card { flex: 1; min-width: 200px; }
-  .sidebar-banner { flex: 1; min-width: 140px; }
 
-  .menu-toggle { display: block; }
+  /* Layout principal */
+  .main-layout {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Sidebar anuncios → pasa abajo */
+  .sidebar-anuncios {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .anuncio-card,
+  .sidebar-banner {
+    flex: 1 1 45%;
+    min-width: 160px;
+  }
+
+  /* Menú hamburguesa */
+  .menu-toggle {
+    display: block;
+  }
 
   nav {
     position: fixed;
-    left: -280px;
+    left: -100%;
     top: 0;
-    width: 280px;
-    height: 100%;
+    width: 260px;
+    height: 100vh;
     background: white;
     z-index: 300;
-    transition: left 0.3s;
-    padding-top: 60px;
+    transition: left 0.3s ease;
+    padding-top: 70px;
     box-shadow: 4px 0 20px rgba(0,0,0,0.15);
+    overflow-y: auto;
   }
 
-  nav.active { left: 0; }
-  nav ul { flex-direction: column; padding: 1.5rem; gap: 1.2rem; }
-  nav a { color: var(--secondary); font-size: 1rem; }
-  .close-menu { display: flex; align-items: center; justify-content: center; }
+  nav.active {
+    left: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  nav a {
+    font-size: 1rem;
+    color: var(--secondary);
+  }
+
+  .close-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Evitar overflow horizontal */
+  body {
+    overflow-x: hidden;
+  }
 }
 
-@media (max-width: 600px) {
-  .catalogo-grid { grid-template-columns: 1fr; }
-  .filtros { flex-direction: column; }
-  .filtro-grupo { min-width: 100%; }
-  .hero-slider { aspect-ratio: 16 / 7; }
-  .cart-panel { width: 100%; right: -100%; }
+/* ── TELÉFONOS ─────────────────────────────── */
+@media (max-width: 650px) {
+
+  /* Catálogo a 1 columna */
+  .catalogo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Filtros apilados */
+  .filtros {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .filtro-grupo {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  /* Slider más compacto */
+  .hero-slider {
+    aspect-ratio: 16 / 9;
+  }
+
+  /* Carrito ocupa toda la pantalla */
+  .cart-panel {
+    width: 100%;
+    right: -100%;
+  }
+
+  /* Ajustes generales de texto */
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+
+  /* Botones más cómodos en touch */
+  button, .btn {
+    width: 100%;
+  }
 }
